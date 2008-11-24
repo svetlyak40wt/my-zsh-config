@@ -1,0 +1,3 @@
+PATH=~/environment/usr/bin:/opt/local/bin:$PATH
+PS1='%n@%m%10<...<%~%<<$ '
+

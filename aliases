@@ -1,0 +1,22 @@
+# ls aliases
+alias ls='ls --color'
+alias l='ls'
+alias ll='ls -l'
+alias la='ls -a'
+alias llt='ll -t'
+alias lla='ll -a'
+
+# git aliases
+alias gitst='git status'
+alias gitpull='git pull'
+alias gitpush='git push'
+alias gitl='git log'
+alias gitam='git add -m'
+alias gitaam='git add -a -m'
+alias gitp='git add --patch'
+
+# remotes
+alias gowork='cd /Volumes/Big/Users/art/Pictures/Photos/work/'
+alias ssh2ubuntu='ssh home.svetlyak.ru'
+alias mntlaptop='sshfs home.svetlyak.ru:/ ~/mnt/laptop/'
+
