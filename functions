@@ -1,0 +1,20 @@
+function fileext()
+{
+    echo ${1#*.}
+}
+
+function pypi()
+{
+    scp $@ svetlyak.ru:/var/www/pypi
+}
+
+function juick()
+{
+    gajim-remote send_chat_message juick@juick.com "$1"
+}
+
+function untar()
+{
+    [ `basename $1 .gz`  != $1 ] && tar -zxvf $1 && return 0
+    [ `basename $1 .bz2` != $1 ] && tar -jxvf $1 && return 0
+}

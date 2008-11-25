@@ -11,12 +11,42 @@ alias gitst='git status'
 alias gitpull='git pull'
 alias gitpush='git push'
 alias gitl='git log'
-alias gitam='git add -m'
-alias gitaam='git add -a -m'
+alias gita='git add'
 alias gitp='git add --patch'
+alias gitci='git commit'
+alias gitcim='gitci -m'
+alias gitdi='git diff'
+alias gitpushall='git push && git push --tags'
+
+# bzr aliases
+alias bzradd='bzr add'
+alias bzrst='bzr status'
+alias bzrci='bzr commit'
+alias bzrcim='bzrci -m'
+alias bzrl='bzr log'
+alias bzrdi='bzr diff | less'
+
 
 # remotes
 alias gowork='cd /Volumes/Big/Users/art/Pictures/Photos/work/'
 alias ssh2ubuntu='ssh home.svetlyak.ru'
 alias mntlaptop='sshfs home.svetlyak.ru:/ ~/mnt/laptop/'
+alias fire="ssh -YA fireball.yandex.ru"
+alias svet="ssh -YA svetlyak.ru"
 
+# misc
+alias activate='source ~/projects/env/aartemenko/bin/activate'
+alias sdist='python setup.py sdist'
+alias vi='vim'
+
+# mounts
+alias mntusers="smbmount //miracle.yandex.ru/users /home/art/mnt/miracle/users -o workgroup=LD,lfs,iocharset=utf8"
+alias mntoldusers="smbmount //miracle-old.yandex.ru/users /home/art/mnt/miracle/old-users -o workgroup=LD,lfs,iocharset=utf8"
+alias mntsoft='smbmount //miracle-old.yandex.ru/Soft /home/art/mnt/miracle/Soft -o workgroup=LD,lfs,iocharset=utf8'
+alias mnthelpdesk='smbmount //miracle-old.yandex.ru/HelpDesk /home/art/mnt/miracle/helpdesk -o workgroup=LD,lfs,iocharset=utf8'
+alias mntfire='sshfs fireball:/home/art /home/art/mnt/fireball'
+alias mntvirt='sshfs -p 1022 localhost:/home/art /home/art/mnt/debian'
+alias mntmusic='smbmount //miracle.yandex.ru/mp /home/art/mnt/miracle/mp -o workgroup=LD,lfs,iocharset=utf8'
+alias mnttransit='smbmount //miracle.yandex.ru/Transit /home/art/mnt/miracle/Transit -o workgroup=LD,lfs,iocharset=utf8'
+alias mntprojects='smbmount //miracle.yandex.ru/projects /home/art/mnt/miracle/projects -o workgroup=LD,lfs,iocharset=utf8'
+alias mntcmail='smbmount //cmail/art /home/art/mnt/cmail/art -o workgroup=LD,lfs,iocharset=utf8'
