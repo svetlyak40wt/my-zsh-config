@@ -1,3 +1,4 @@
 PATH=~/environment/usr/bin:/opt/local/bin:$PATH
 PS1='%n@%m:%30<...<%~%<<$ '
+LANG=ru_RU.UTF8
 
