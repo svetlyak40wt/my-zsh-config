@@ -1,5 +1,4 @@
 # ls aliases
-alias ls='ls --color'
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
@@ -36,12 +35,17 @@ alias fire="ssh -YA fireball.yandex.ru"
 alias svet="ssh -YA svetlyak.ru"
 
 # misc
-alias activate='source ~/projects/env/aartemenko/bin/activate'
 alias sdist='python setup.py sdist'
 alias vi='vim'
+alias apts='apt-cache search'
+alias aptp='apt-cache policy'
+alias apti='sudo apt-get install'
+alias .='source'
+alias ipy='ipy -X:ColorfulConsole -X:TabCompletion'
 
 # mounts
 alias mntusers="smbmount //miracle.yandex.ru/users /home/art/mnt/miracle/users -o workgroup=LD,lfs,iocharset=utf8"
+alias mntprojects="smbmount //miracle.yandex.ru/projects /home/art/mnt/miracle/projects -o workgroup=LD,lfs,iocharset=utf8"
 alias mntoldusers="smbmount //miracle-old.yandex.ru/users /home/art/mnt/miracle/old-users -o workgroup=LD,lfs,iocharset=utf8"
 alias mntsoft='smbmount //miracle-old.yandex.ru/Soft /home/art/mnt/miracle/Soft -o workgroup=LD,lfs,iocharset=utf8'
 alias mnthelpdesk='smbmount //miracle-old.yandex.ru/HelpDesk /home/art/mnt/miracle/helpdesk -o workgroup=LD,lfs,iocharset=utf8'
