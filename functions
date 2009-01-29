@@ -19,6 +19,19 @@ function untar()
     [ `basename $1 .bz2` != $1 ] && tar -jxvf $1 && return 0
 }
 
+function activate()
+{
+    PROJECT=$1
+    test "$PROJECT" = "" && PROJECT=`basename $PWD`
+    ACTIVATION_SCRIPT="$HOME/projects/env/$PROJECT/bin/activate"
+    if test -e "$ACTIVATION_SCRIPT"; then
+        source "$ACTIVATION_SCRIPT"
+    else
+        echo "Virtual environment '$PROJECT' does not exists."
+        return 1
+    fi
+}
+
 host_is_localhost() {
     if [ -n "$SSH_CLIENT" ]; then return 1; fi
     if [ -n "$SSH2_CLIENT" ]; then return 1; fi
