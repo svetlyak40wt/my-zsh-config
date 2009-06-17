@@ -23,7 +23,7 @@ function activate()
 {
     PROJECT=$1
     test "$PROJECT" = "" && PROJECT=`basename $PWD`
-    ACTIVATION_SCRIPT="$HOME/projects/env/$PROJECT/bin/activate"
+    ACTIVATION_SCRIPT="$HOME/env/$PROJECT/bin/activate"
     if test -e "$ACTIVATION_SCRIPT"; then
         source "$ACTIVATION_SCRIPT"
     else
@@ -62,3 +62,26 @@ tty_is_screen() {
     test "$TERM" = "screen"
 }
 
+vm_forward() {
+    MACHINE=$1
+    SERVICE=$2
+    FROM_PORT=$3
+    TO_PORT=$4
+
+    VBoxManage setextradata "$MACHINE" "VBoxInternal/Devices/pcnet/0/LUN#0/Config/$SERVICE/Protocol" TCP
+    VBoxManage setextradata "$MACHINE" "VBoxInternal/Devices/pcnet/0/LUN#0/Config/$SERVICE/GuestPort" $FROM_PORT
+    VBoxManage setextradata "$MACHINE" "VBoxInternal/Devices/pcnet/0/LUN#0/Config/$SERVICE/HostPort" $TO_PORT
+}
+
+run() {
+    # Run django application server
+    # from ./bin directory
+    DJANGO=bin/django
+    if [ -e $DJANGO ]; then
+        if $DJANGO help 2>&1 | grep -q runserver_plus; then
+            $DJANGO runserver_plus 0.0.0.0:8000
+        else
+            $DJANGO runserver 0.0.0.0:8000
+        fi
+    fi
+}

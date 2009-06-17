@@ -1,4 +1,6 @@
-export PATH=~/usr/bin:~/environment/usr/bin:/opt/local/bin:$PATH
+export PATH=~/env/buildout/bin:~/usr/bin:/opt/local/bin:$PATH
 export PS1='%n@%m:%30<...<%~%<<$ '
 export CLICOLOR=yes
 export CFG=art
+export EDITOR=vim
+export LANG=ru_RU.UTF8

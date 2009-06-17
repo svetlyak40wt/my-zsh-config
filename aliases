@@ -1,6 +1,9 @@
+# MISC
+alias mutt='TERM=xterm-color mutt'
+
 # ls aliases
 alias l='ls'
-alias ll='ls -l'
+alias ll='ls -l -h'
 alias la='ls -a'
 alias llt='ll -t'
 alias lla='ll -a'
@@ -19,6 +22,11 @@ alias gitb='git checkout -b'
 alias gitdi='git diff'
 alias gitdic='gitdi --cached'
 alias gitpushall='git push && git push --tags'
+alias gitco='git checkout'
+alias gitcob='git checkout -b'
+alias gitb='git branch'
+alias gitm='git merge'
+alias gitmv='git mv'
 
 # bzr aliases
 alias bzradd='bzr add'
@@ -57,3 +65,55 @@ alias mntmusic='smbmount //miracle.yandex.ru/mp /home/art/mnt/miracle/mp -o work
 alias mnttransit='smbmount //miracle.yandex.ru/Transit /home/art/mnt/miracle/Transit -o workgroup=LD,lfs,iocharset=utf8'
 alias mntprojects='smbmount //miracle.yandex.ru/projects /home/art/mnt/miracle/projects -o workgroup=LD,lfs,iocharset=utf8'
 alias mntcmail='smbmount //cmail/art /home/art/mnt/cmail/art -o workgroup=LD,lfs,iocharset=utf8'
+
+# GTD
+alias gtd='./gtd'
+alias gtshow='gtd show'
+alias gtwork='gtd show работа,сегодня'
+alias gtworklate='gtd show работа,-сегодня'
+alias gthome='gtd show дома,сегодня'
+alias gthomelate='gtd show дома,-сегодня'
+alias gtlate='gtd show -сегодня'
+alias gta='gtd add'
+alias gtdone='gtd close'
+alias gtu='gtd update'
+
+function gtm()
+{
+    [ "$1" != "" ] || { echo "Please, specify task id(s) and tags" && return 1 }
+    [ "$2" != "" ] || { echo "Please, specify tags" && return 2 }
+    gtu $1 - - $2
+}
+
+function gtmtoday()
+{
+    [ "$1" != "" ] || { echo "Please, specify task id(s)" && return 1 }
+    gtm $1 сегодня,-завтра,-когда-нибудь
+}
+
+function gtatoday()
+{
+    [ "$1" != "" ] || { echo "Please, specify tags" && return 1 }
+    [ "$2" != "" ] || { echo "Please, specify task title" && return 1 }
+    [ "$3" != "" ] || { echo "Please, specify task priority" && return 1 }
+    gta $2 $3 $1,сегодня
+}
+
+alias gtwtoday='gtatoday работа'
+alias gthtoday='gtatoday дома'
+
+
+function gtmzavtra()
+{
+    [ "$1" != "" ] || { echo "Please, specify task id(s)" && return 1 }
+    gtm $1 -сегодня,завтра
+}
+
+function gtp()
+{
+    [ "$1" != "" ] || { echo "Please, specify task id(s) and new priority" && return 1 }
+    [ "$2" != "" ] || { echo "Please, specify new priority" && return 2 }
+    gtu $1 - $2
+}
+
+alias bootstrap_buildout="wget 'http://svn.zope.org/*checkout*/zc.buildout/trunk/bootstrap/bootstrap.py'"
